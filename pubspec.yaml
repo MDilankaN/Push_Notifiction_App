@@ -33,6 +33,7 @@ dependencies:
 
   firebase_core: ^2.24.2
   firebase_messaging:
+  firebase_analytics:
   cupertino_icons: ^1.0.2
 
 dev_dependencies:

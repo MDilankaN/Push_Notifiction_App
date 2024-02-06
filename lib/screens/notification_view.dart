@@ -1,17 +1,26 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
-class NotificationView extends StatefulWidget {
+class NotificationView extends StatelessWidget {
   const NotificationView({super.key});
 
-  @override
-  State<NotificationView> createState() => _NotificationViewState();
-}
+  static const route = '/notification-view';
 
-class _NotificationViewState extends State<NotificationView> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text("Notification View")),
+    final RemoteMessage message =
+        ModalRoute.of(context)!.settings.arguments as RemoteMessage;
+    return Scaffold(
+      body: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Text("Notification View"),
+          Text('title ${message.notification!.title}'),
+          Text('body ${message.notification!.body}'),
+        ],
+      )),
     );
   }
 }
